@@ -1,8 +1,7 @@
 <template>
-  <div>
-
+  <div class="container-fluid" style="padding: 0px;">
+    <Header v-bind:user="user"/>
     <div class="container">
-
       <div class="tab-pane fade show active">
           <div class="row">
               <div class="col-md-12">
@@ -38,10 +37,13 @@
 
 <script>
 import axios from "axios";
+import Header from "./Header";
 
 export default {
   name: "ViewInvoices",
-  components: {},
+  components: {
+    Header
+  },
   data() {
     return {
       invoices: [],

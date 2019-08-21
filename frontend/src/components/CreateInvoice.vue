@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="container-fluid" style="padding: 0px;">
+    <Header v-bind:user="user"/>
     <div class="container">
       <div class="tab-pane fade show active">
           <div class="row">
@@ -91,10 +92,13 @@
 
 <script>
 import axios from "axios";
+import Header from "./Header";
 
 export default {
   name: "CreateInvoice",
-  components: {},
+  components: {
+    Header
+  },
   data() {
     return {
       invoice: {
@@ -104,10 +108,15 @@ export default {
       transactions: [],
       nextTxnId: 1,
       loading: "",
-      status: ""
+      status: "",
+      user: '',
     };
   },
   methods: {
+    mounted() {
+    // make request to fetch invoice data
+    this.user = JSON.parse(localStorage.getItem("user"));
+    },
     saveTransaction() {
       // append data to the arrays
       let name = document.getElementById("txn_name_modal").value;

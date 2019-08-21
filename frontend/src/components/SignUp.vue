@@ -158,7 +158,7 @@ export default {
 
           // now send the user to the next route
           this.$router.push({
-            name: "Dashboard"
+            name: "CreateInvoice"
           });
         } else {
           this.status = res.data.message;

@@ -5,8 +5,8 @@
             <p style="font-size:12px;cursor:pointer" v-on:click="closeNav"><em>Close Nav</em></p>
             <p><em>Company: {{ company }} </em></p>
             <h3>Welcome, {{ name }}</h3>
-            <p class="clickable" v-on:click="setActive('create')">Create Invoice</p>
-            <p class="clickable" v-on:click="setActive('view')">View Invoices</p>
+            <router-link :to="{ name: 'CreateInvoice', params: { }}">Create Invoice</router-link>
+            <router-link :to="{ name: 'ViewInvoices', params: { }}">View Invoices</router-link>
         </div>
     </div>
 </template>
@@ -23,14 +23,13 @@ export default {
   methods: {
     setActive(option) {
       this.active = option;
+      console.log(this.$parent.$parent);
       this.$parent.$parent.isactive = option;
     },
     openNav() {
-      console.log("pressed");
       document.getElementById("leftsidenav").style.width = "20%";
     },
     closeNav() {
-      console.log("pressed");
       document.getElementById("leftsidenav").style.width = "0%";
     }
   }
