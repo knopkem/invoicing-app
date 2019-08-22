@@ -21,9 +21,15 @@ export default {
     CreateInvoice,
     ViewInvoices,
   },
+  watch: {
+    '$route' (to, from) {
+      // react to route changes...
+      this.isactive = to.params.isactive;
+    }
+  },
   data() {
     return {
-      isactive: 'create',
+      isactive: this.$route.params.isactive || 'create',
       title: "Invoicing App",
       user : (this.$route.params.user) ? this.$route.params.user : null
     };

@@ -16,7 +16,7 @@ export default new Router({
       component: SignUp
     },
     {
-      path: "/dashboard",
+      path: "/dashboard/:isactive",
       name: "Dashboard",
       component: Dashboard
     },

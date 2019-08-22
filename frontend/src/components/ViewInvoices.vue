@@ -37,12 +37,11 @@
 
 <script>
 import axios from "axios";
-import Header from "./Header";
+// import Header from "./Header";
 
 export default {
   name: "ViewInvoices",
   components: {
-    Header
   },
   data() {
     return {
